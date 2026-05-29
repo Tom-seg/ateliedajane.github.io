@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ateliê da Jane - Pijamas e Vestidos Artesanais</title>
+  <meta name="description" content="Pijamas e vestidos infantis artesanais feitos com amor e carinho. Pecas unicas e personalizadas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f7efee;
+      --foreground: #6d4f54;
+      --card: #fff8f7;
+      --card-foreground: #6d4f54;
+      --primary: #c59094;
+      --primary-foreground: #fffaf6;
+      --secondary: #f4e6e4;
+      --secondary-foreground: #6d4f54;
+      --muted: #f4e6e4;
+      --muted-foreground: #9e7d81;
+      --accent: #f3dfdf;
+      --accent-foreground: #c59094;
+      --border: #e5c9c8;
+      --ring: #c59094;
+      --radius: 0.75rem;
+    }
+
+    .dark {
+      --background: #1d1719;
+      --foreground: #f6e8ea;
+      --card: #251d20;
+      --card-foreground: #f6e8ea;
+      --primary: #e5b0b6;
+      --primary-foreground: #161210;
+      --secondary: #302528;
+      --secondary-foreground: #f6e8ea;
+      --muted: #302528;
+      --muted-foreground: #dbbcc0;
+      --accent: #40332a;
+      --accent-foreground: #e5b0b6;
+      --border: #594348;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .brand-info h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 400;
+    }
+
+    .brand-info p {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--foreground);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background-color: var(--secondary);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      color: var(--foreground);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    @media (min-width: 768px) {
+      .hero h2 {
+        font-size: 3.5rem;
+      }
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .hero-card h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-card p {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin: 0;
+    }
+
+    /* Catalog */
+    .catalog {
+      padding: 3rem 0;
+    }
+
+    .catalog-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .catalog-header h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+      background-color: var(--card);
+      color: var(--foreground);
+    }
+
+    .filter-btn.active {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border-color: var(--primary);
+    }
+
+    .filter-btn:hover:not(.active) {
+      background-color: var(--secondary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+   .product-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      cursor: pointer; /* Muda a setinha do mouse para uma mãozinha */
+      transition: transform 0.3s ease; /* Deixa o zoom do mouse suave */
+    }
+
+    /* Efeito de zoom suave ao passar o mouse */
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+
+    /* Tela escura do Zoom (Lightbox) */
+    .lightbox {
+      display: none; /* Fica escondido até clicar */
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85); /* Fundo preto transparente */
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active {
+      display: flex; /* Mostra a tela quando ativado */
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .product-info {
+      padding: 1rem;
+    }
+
+    .product-info h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.125rem;
+      color: var(--foreground);
+      margin-bottom: 0.25rem;
+    }
+
+    .product-info .price {
+      font-size: 0.875rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-info .description {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+
+    .product-info .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    /* SVG Icons */
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .brand {
+        flex-direction: column;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="brand">
+          <img src="Logo.png" alt="Logo Ateliê da Jane" class="brand-logo" style="width: 60px; height: 60px; object-fit: contain;">
+          <div class="brand-info">
+            <h1>Ateliê da Jane</h1>
+            <p>Feito a mao com amor</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+            <svg class="icon sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </button>
+          <a href="https://wa.me/5511994112148?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20do%20Atelie%20da%20Jane" class="btn btn-primary" target="_blank">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Fale Conosco
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h2>Praticidade para você, muito conforto e estilo para os pequenos. Conheça o Ateliê da Jane.</h2>
+      <p>Pijamas e Vestidos infantis feitos a mão com muito carinho. Cada peça é única e especial, assim como o seu pequeno.</p>
+      <div class="hero-cards">
+        <div class="hero-card">
+          <h3>Feito a Mão</h3>
+          <p>Cada peça é confeccionada artesanalmente com atenção aos detalhes.</p>
+        </div>
+        <div class="hero-card">
+          <h3>Tecidos de Qualidade</h3>
+          <p>Materiais macios e confortáveis para o bem-estar dos pequenos.</p>
+        </div>
+        <div class="hero-card">
+          <h3>Sob Encomenda</h3>
+          <p>Peças personalizadas no tamanho e na estampa que você preferir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section class="catalog" id="catalogo">
+    <div class="container">
+      <div class="catalog-header">
+        <h2>Nosso Catalogo</h2>
+        <div class="filter-buttons">
+          <button class="filter-btn active" onclick="filterProducts('todos')">Todos</button>
+          <button class="filter-btn" onclick="filterProducts('pijamas')">Pijamas</button>
+          <button class="filter-btn" onclick="filterProducts('vestidos')">Vestidos</button>
+        </div>
+      </div>
+      <div class="products-grid" id="products-grid">
+        <!-- Products will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </section>
+<div id="imageLightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightboxImg" src="" alt="Imagem Ampliada">
+  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Atelie da Jane - Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    // Products data
+    const products = [
+      { id: 1, title: "Pijama Bicho Preguica", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Bicho%20Pregui%C3%A7a-TLF2mOvvh6fzkERbMOs9BMFteLjJCM.jpg" },
+      { id: 2, title: "Pijama Bichos Preguica", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Bichos%20Preguica-cnhE1g9O9hyc7Kf9OKKfpn2BDJprHa.jpg" },
+      { id: 3, title: "Pijama Bobbie Goods", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Bobbie%20Goods-zfvdxd4WutqpBQvIzR7vjT6zwnmTGB.jpg" },
+      { id: 4, title: "Pijama Coelhinhos Azul e Rosa", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Coelhinhos%20Azul%20Rosa-aCetodUmJx2oCDikjYILRB5NbQqG7v.jpg" },
+      { id: 5, title: "Pijama Coelhinhos Azul e Cinza", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Coelhinhos%20Azul%20Cinza-juR6TyQfhcM7HxalDOQzMqeuVTHRPI.jpg" },
+      { id: 6, title: "Pijama Coelhinhos Verde", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Coelhinhos%20Verde-2TNPAzb3LwLE1V20KF2DZJ9xVGJgV7.jpg" },
+      { id: 7, title: "Pijama Coracoes Rosa", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Cora%C3%A7%C3%B5es%20Rosa-f2mfCWG2WFZFOc4Mp9yYwqw9udVGWC.jpg" },
+      { id: 8, title: "Pijama Dinossauros Azul Montanhas", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Dinossauros%20Azul%20Montanhas-hV4ntRcyq07ySxQvpwfMujTx1VFWE7.jpg" },
+      { id: 9, title: "Pijama Dinossauros Colorido", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Dinossauros%20Colorido-i523rpcZSHSwlF7VjBDHZEZZhBCdcI.jpg" },
+      { id: 10, title: "Pijama Dinossauros Preto e Azul", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Dinossauros%20Preto%20e%20Azul-2eGWx6gVxpTt9PinsNMcXH0PGshCcj.jpg" },
+      { id: 11, title: "Pijama Elefantes Laranja", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Elefantes%20Laranja-9Fo7B7CBW8LkLEC9S1VVj2xbL7J0jw.jpg" },
+      { id: 12, title: "Pijama Estrelas Pink", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Estrelas%20Pink-vsPeYwPMh8DWa4Yg3ziJ1gIXA3j2cp.jpg" },
+      { id: 13, title: "Pijama Foguetes Azul Claro", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Foguetes%20Azul%20Claro-0ykkEMe4IdrqeZIfZRQMAOA5GUeHc3.jpg" },
+      { id: 14, title: "Pijama Gato e Estrelas", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Gato%20e%20Estrelas-IEaxuyXLE6YJDjp1LAM1nSMeXzGslO.jpg" },
+      { id: 15, title: "Pijama Gato e Lua", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Gato%20e%20Lua-scMh9tCjMHkLlSyXXEDKVTrw1DtZvE.jpg" },
+      { id: 16, title: "Pijama Mickey Mouse", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Mickey%20Mouse-KQAsC0Dd9b8wYbVqAvezROjNFDVx4Q.jpg" },
+      { id: 17, title: "Pijama Minie", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Minie-yACbquA1cnsrZGVp7FBNIXXE4VQxQy.jpg" },
+      { id: 18, title: "Pijama Minnie Mouse Pink", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Minnie%20Mouse%20Pink-5XYhZ49bCzhKhSpmnJgGufGbXkZpw1.jpg" },
+      { id: 19, title: "Pijama Minnie Mouse Rosa", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Minnie%20Mouse%20Rosa-G2YspcvqKxqZmcZvxf8C0P6rZDmWKO.jpg" },
+      { id: 20, title: "Pijama Ovelinhas Cinza", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Ovelinhas%20Cinza-FCUcjlKBR9yH8PpJ5C5eztRpS9vu7d.jpg" },
+      { id: 21, title: "Pijama Pandas Verde", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Pandas%20Verde-InHhC8R6x5Q4kjKeEyTOGza69wRcLo.jpg" },
+      { id: 22, title: "Pijama Unicornio Rosa", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijamas%20Unicornio%20Rosa-o9KSQZqk0TgZDE8LXVF9bsVmcx9Tlw.jpg" },
+      { id: 23, title: "Pijama Ursinhos", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Ursinhos%20-BaUuRL4DPW0goTwJqZ4t2Y7IMFtmpU.jpg" },
+      { id: 24, title: "Pijama Stitch Rosa Manga Longa", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Stitch%20Rosa%20Manga%20Longa-MGF1MDNfFi0JqzvxIjDikS2WwpkZAC.jpg" },
+      { id: 25, title: "Pijama Ovelinhas Rosa", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Ovelinhas%20Rosa-mrhFIS9LF0yKkSEldzjMWZaYYQtVF3.jpg" },
+      { id: 26, title: "Pijama Panda Verde", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Panda%20Verde-KDcqcM4yZOrym7sYccwpjMUexuCmqH.jpg" },
+      { id: 27, title: "Pijama Safari Animais", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Safari%20Animais-1z8CvJiS5XIrdlSU2a83ORTAsF3c0W.jpg" },
+      { id: 28, title: "Pijama Ursinhos Amarelo Claro", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Ursinhos%20Amarelo%20Claro-jOk3NtQeoToKOrKjMjXRr7K2buKTzV.jpg" },
+      { id: 29, title: "Pijama Princess Rosa", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Princess%20Rosa-pvy2hoXoSSRyCkC5Kr9Sro09wBvF16.jpg" },
+      { id: 30, title: "Pijama Ursinho Pooh Rosa", category: "pijamas", price: "Sob encomenda", description: "Tamanho a consultar. Peca artesanal feita a mao com muito carinho.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pijama%20Ursinho%20Pooh%20Rosa-uYdTESByHTPCA0DBu6GusY97Pp1FFJ.jpg" },
+      { id: 31, title: "Vestido Junino Floral Azul e Vermelho", category: "vestidos", price: "Sob encomenda", description: "Vestido caipira artesanal com detalhes em fita. Tamanho a consultar.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/51-FJzikrkyUaIsaG4QP46uA15HfpKt4m.jpg" },
+      { id: 32, title: "Vestido Junino Vermelho com Laco", category: "vestidos", price: "Sob encomenda", description: "Vestido caipira artesanal com detalhes em fita. Tamanho a consultar.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/52-a6mNaFhvERtD8cPEeOrkWIa9TqrX8W.jpg" },
+      { id: 33, title: "Vestido Junino Azul e Vermelho Rodado", category: "vestidos", price: "Sob encomenda", description: "Vestido caipira artesanal com camadas e fitas coloridas. Tamanho a consultar.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/53-6uscbGw9S0OnWoqdN4bgQl0L1KHem4.jpg" },
+      { id: 34, title: "Vestido Junino Amarelo Floral", category: "vestidos", price: "Sob encomenda", description: "Vestido caipira artesanal com babados e tule. Tamanho a consultar.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/54-prRBhakd0GVm3g7NyIeei4D6VpQNWX.jpg" },
+      { id: 35, title: "Vestido Junino Amarelo Floral II", category: "vestidos", price: "Sob encomenda", description: "Vestido caipira artesanal com babados e tule. Tamanho a consultar.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/55-cEwxaNFtppd28aUiv1lUxYnkYLfo9W.jpg" },
+      { id: 36, title: "Vestido Junino Corujas Colorido", category: "vestidos", price: "Sob encomenda", description: "Vestido caipira artesanal estampa de corujas com babados. Tamanho a consultar.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/56-FOPDqswplbTmYrRQnGu85WXfHtRaSI.jpg" },
+      { id: 37, title: "Vestido Junino Azul Floral com Renda", category: "vestidos", price: "Sob encomenda", description: "Vestido caipira artesanal com detalhes em renda e lacos. Tamanho a consultar.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/57-A9NKZGZWBYI9oykjO5RVvPhNcI6UJ1.jpg" },
+      { id: 38, title: "Vestido Junino Azul Claro com Chapeu", category: "vestidos", price: "Sob encomenda", description: "Vestido caipira artesanal com chapeu de palha. Tamanho a consultar.", imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/58-iGIh9cWV3QuTLsifQGylckYMl9rt9Y.jpg" }
+    ];
+
+    let currentFilter = 'todos';
+
+    function renderProducts(filter = 'todos') {
+      const grid = document.getElementById('products-grid');
+      const filteredProducts = filter === 'todos' 
+        ? products 
+        : products.filter(p => p.category === filter);
+      
+      grid.innerHTML = filteredProducts.map(product => `
+        <div class="product-card">
+          <img src="${product.imageUrl}" alt="${product.title}" class="product-image" loading="lazy" onclick="openLightbox('${product.imageUrl}')">
+          <div class="product-info">
+            <h3>${product.title}</h3>
+            <p class="price">${product.price}</p>
+            <p class="description">${product.description}</p>
+            <a href="https://wa.me/5511994112148?text=Olá!%20Tenho%20interesse%20no%20${encodeURIComponent(product.title)}" class="btn btn-primary" target="_blank">
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Quero esse!
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+// Função para abrir o Zoom
+    function openLightbox(imageSrc) {
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      lightboxImg.src = imageSrc;
+      lightbox.classList.add('active');
+    }
+
+    // Função para fechar o Zoom
+    function closeLightbox() {
+      const lightbox = document.getElementById('imageLightbox');
+      lightbox.classList.remove('active');
+    }
+    function filterProducts(filter) {
+      currentFilter = filter;
+      
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      renderProducts(filter);
+    }
+
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check for saved theme preference
+      if (localStorage.getItem('theme') === 'dark' || 
+          (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+      
+      // Render products
+      renderProducts();
+    });
+  </script>
+</body>
+</html>
